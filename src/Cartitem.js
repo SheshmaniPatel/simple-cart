@@ -12,8 +12,29 @@ class CartItem extends React.Component {
   }
 
   increaseQuantity = () => {
-    console.log("this", this.state);
+
+    // this.state.qty +=1;
+    //console.log("this", this.state);
+
+    // setState form 1
+    // this.setState({
+    //     qty: this.state.qty +1
+    // })
+
+    //setState form 2 -- if required previous one
+     this.setState((prevState) =>{
+        return{
+            qty:prevState.qty+1
+        }
+     })
+
   };
+
+  decreaseQuantity = ()=>{
+    this.setState({
+        qty:this.state.qty-1
+    })
+  }
   //    just a clickevent for show the alert massage
   showaleart() {
     alert("You can't delete it right now");
@@ -40,6 +61,7 @@ class CartItem extends React.Component {
               src="https://cdn-icons-png.flaticon.com/256/860/860734.png"
             />
             <img
+            onClick={this.decreaseQuantity}
               alt="decrease"
               className="action-icons"
               src=" https://cdn-icons-png.flaticon.com/256/1828/1828899.png"
