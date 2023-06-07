@@ -10,8 +10,19 @@ class CartItem extends React.Component {
       img: " ",
     };
   }
+
+        increaseQuantity = ()=>{
+            console.log("this",this.state);
+        }
+   //    just a clickevent for show the alert massage
+     showaleart() {
+    alert("You can't delete it right now");
+  }
+
   render() {
-    const { price, title, qty } = this.state;
+    let { price, title, qty } = this.state;
+   
+
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -24,6 +35,7 @@ class CartItem extends React.Component {
           <div className="cart-item-actions">
             {/* Buttons */}
             <img
+                onClick={this.increaseQuantity}
               alt="increase"
               className="action-icons"
               src="https://cdn-icons-png.flaticon.com/256/860/860734.png"
@@ -34,6 +46,7 @@ class CartItem extends React.Component {
               src=" https://cdn-icons-png.flaticon.com/256/1828/1828899.png"
             />
             <img
+              onClick={this.showaleart}
               alt="delete"
               className="action-icons"
               src="https://cdn-icons-png.flaticon.com/256/484/484611.png"
