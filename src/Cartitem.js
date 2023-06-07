@@ -27,12 +27,18 @@ class CartItem extends React.Component {
             qty:prevState.qty+1
         }
      })
-
+        console.log(this.state)
   };
 
   decreaseQuantity = ()=>{
-    this.setState({
-        qty:this.state.qty-1
+    const{qty}=this.state;
+    if(qty === 0) {
+        return;
+    }
+    this.setState((prevState) =>{
+        return{
+            qty:prevState.qty -1
+        }
     })
   }
   //    just a clickevent for show the alert massage
